@@ -1,4 +1,35 @@
+import axios from "axios";
+import { useState } from "react";
+// import { useNavigate } from "react";
+
 function SignUpPage() {
+  // const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const signUpData = {
+      first_name: event.target.firstName.value,
+      last_name: event.target.lastName.value,
+      phone: event.target.phoneNumber.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    // sending a post request to backend to register a new users
+    axios
+      .post("http://localhost:8080/auth/register", signUpData)
+      .then((response) => {
+        console.log(response);
+        window.location.href = "./loginPage";
+      })
+      .catch((error) => {
+        console.error(error);
+        setErrorMessage("Invalid email or phone number");
+      });
+  }
+
   return (
     <section className="signUpPage">
       <section>
@@ -7,7 +38,7 @@ function SignUpPage() {
         </div>
       </section>
       <section className="signUp__card">
-        <form className="signUp__form">
+        <form className="signUp__form" onSubmit={handleSubmit}>
           <div className="signUp__name signUp__formGroup">
             <label>First Name:</label>
             <input
@@ -44,17 +75,22 @@ function SignUpPage() {
               className="signUp__userEmailInput"
               placeholder="Enter your email"
               type="text"
-              name="addEmail"
-              id="addEmail"
+              name="email"
+              id="email"
             />
           </div>
-          <div className="loginPage__password">
+          <div className="signUpPage__password">
             <label>Enter your Password</label>
             <input
-              className="loginPage__passwordInput"
+              className="signUpPage__passwordInput"
               placeholder="Enter your mingle Password"
+              name="password"
+              id="password"
             />
           </div>
+
+          <div className="signUp__error">{errorMessage}</div>
+          <button> Sign Up</button>
         </form>
       </section>
     </section>
