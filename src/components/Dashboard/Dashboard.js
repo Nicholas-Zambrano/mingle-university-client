@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProfileUpdate from "../ProfileUpdate/ProfileUpdate";
 
 function Dashboard() {
   const [data, setData] = useState(null);
@@ -59,6 +60,8 @@ function Dashboard() {
     <main>
       <h1> My profile </h1>
       <p>Welcome, {data.first_name}</p>
+      <ProfileUpdate/>
+
     </main>
   );
 }
