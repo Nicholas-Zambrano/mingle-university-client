@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+
+// import Dashboard from "../DashboardPage/DashboardPage";
+import "./ProfileUpdatePage.scss";
 
 function ProfileUpdate() {
   const [university, setUniversity] = useState("");
@@ -9,9 +13,50 @@ function ProfileUpdate() {
   const [photo, setPhoto] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [failedAuth, setFailedAuth] = useState(false);
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setFailedAuth(true);
+      return;
+    }
+
+    axios
+      .get("http://localhost:8080/my-profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log("i am in a loop");
+        console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+        setFailedAuth(true);
+      });
+
+    // ciao();
+  }, []);
+
+  if (isLoading) {
+    // setIsLoading(true)
+    return (
+      <main>
+        <h2>Loading</h2>
+      </main>
+    );
+  }
   const setImage = (file) => {
     // setPhoto(file);
-    // creating a temporary url 
+    // creating a temporary url
     setImageUrl(URL.createObjectURL(file));
   };
 
@@ -42,12 +87,17 @@ function ProfileUpdate() {
       });
   };
   return (
-    <section>
-      {/* <h1>Profile</h1> */}
+    <section className="profileUpdate">
+      <div className="profileUpdate__title">
+        <h1> My profile </h1>
+      </div>
 
-      <form className="profileForm" onSubmit={handleSubmit}>
-        <div className="profileForm__universityGroup">
-          <label>Select university </label>
+      <div className="profileUpdate__subheader">
+        <p>Welcome, {data.first_name}</p>
+      </div>
+      <form className="profileUpdate__form" onSubmit={handleSubmit}>
+        <div className="profileUpdate__universityGroup profileUpdate__formGroup">
+          <label className="profileUpdate__label">Select university </label>
           <select
             name="university"
             id="universrity"
@@ -76,8 +126,8 @@ function ProfileUpdate() {
           </select>
         </div>
 
-        <div className="profileForm__coursesGroup">
-          <label>Select courses </label>
+        <div className="profileUpdate__coursesGroup profileUpdate__formGroup">
+          <label className="profileUpdate__label">Select courses </label>
           <select
             name="course"
             id="course"
@@ -96,8 +146,8 @@ function ProfileUpdate() {
           </select>
         </div>
 
-        <div className="profileForm__hobbiesGroup">
-          <label>Select hobby </label>
+        <div className="profileUpdate__hobbiesGroup profileUpdate__formGroup">
+          <label className="profileUpdate__label">Select hobby </label>
           <select
             name="hobbies"
             id="hobbies"
@@ -107,7 +157,9 @@ function ProfileUpdate() {
             value={hobbies}
           >
             <option> </option>
-            <option value="Reading">Reading</option>
+            <option selected="true" value="Reading">
+              Reading
+            </option>
             <option value="Gaming">Gaming</option>
             <option value="Cooking">Cooking </option>
             <option value="Hiking">Hiking </option>
@@ -117,8 +169,8 @@ function ProfileUpdate() {
           </select>
         </div>
 
-        <div className="profileForm__pictureGroup">
-          <label>Upload photo</label>
+        <div className="profileUpdate__pictureGroup profileUpdate__formGroup">
+          <label className="profileUpdate__label">Upload photo</label>
           <input
             type="file"
             accept="image/*"
@@ -128,7 +180,7 @@ function ProfileUpdate() {
           />
         </div>
 
-        <button className="profileForm__button" type="submit">
+        <button className="profileUpdate__button" type="submit">
           Lets Mingle
         </button>
       </form>

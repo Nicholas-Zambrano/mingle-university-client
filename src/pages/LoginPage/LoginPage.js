@@ -20,7 +20,7 @@ function LoginPage() {
         const token = response.data.token;
         console.log(token);
         localStorage.setItem("token", token);
-        navigate("/dashboard");
+        navigate("/profileUpdate");
       })
       .catch((error) => {
         console.error(error);
