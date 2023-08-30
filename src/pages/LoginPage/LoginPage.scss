@@ -18,7 +18,7 @@
 
   &__title{
     font-family: 'Chewy', cursive; 
-    font-size: 2rem
+    font-size: 2.5rem
   }
 
   &__card {
@@ -38,7 +38,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
   }
   // &Group {
   //   margin: 1rem 0;
@@ -97,5 +97,13 @@
     font-weight: bold;
     height: 2rem;
     border-radius: 0.3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__linkSignUp{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }

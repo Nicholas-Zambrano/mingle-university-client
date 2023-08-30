@@ -64,7 +64,7 @@ function LoginPage() {
           <div className="loginPage__linkSignUp">
             <p className="loginPage__linkMessage">
               Don't have an account, press the sign up button{" "}
-            </p>{" "}
+            </p>
             <Link to="/signUpPage">
               {/* <p className="loginPage__linkMessage">Don't have an account, press this mysteious button </p> */}
               <button className="loginPage__linkButton">Sign up Page</button>
