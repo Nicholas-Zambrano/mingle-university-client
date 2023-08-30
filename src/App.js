@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Users from "./components/Users/Users";
 import Dashboard from "./components/Dashboard/Dashboard";
+// import "./partials/_resets.scss"
 
 function App() {
   return (

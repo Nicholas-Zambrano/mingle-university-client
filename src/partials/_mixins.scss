@@ -1,0 +1,45 @@
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $breakpoint-desktop;
+  margin: 0 auto;
+  padding: 3.2rem 2.4rem;
+}
+
+@mixin btn-primary {
+  display: block;
+  background-color: $instock-indigo;
+  padding: calc(0.8rem + 1px) 1.6rem;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4.8rem;
+  font-weight: bold;
+}
+
+@mixin sr-only {
+  // makes something only visible to screen readers
+  // and not visible to in the UI
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

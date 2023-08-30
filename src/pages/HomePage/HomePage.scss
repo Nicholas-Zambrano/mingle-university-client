@@ -1,0 +1,68 @@
+// .homePage {
+//   &__title {
+//     font-family: "Chewy", cursive;
+//   }
+// }
+/* HomePage.scss */
+
+.homePage {
+  background-color: #3d75aa; /* Cool blue background color */
+  color: white; /* Text color */
+  // margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #24c0dc, #265c8e);
+
+  &__header {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  &__title {
+    font-family: "Chewy", cursive;
+    font-size: 3rem; /* Larger title font size */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* 3D text effect */
+    margin-bottom: 4rem;
+  }
+  &__catchyLine {
+    font-size: 1.5rem; /* Smaller font size for the catchy line */
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for effect */
+    // margin: 0;
+  }
+
+  &__hero {
+    text-align: center;
+    padding: 2rem;
+    // padding-top: 0;
+    
+    
+  }
+
+  &__buttonsWrapper{
+    display: flex;
+    justify-content: space-around;
+  }
+  &__heroTitle {
+    font-size: 2rem; /* Larger font size for the hero title */
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+  &__heroDescription {
+    font-size: 1.2rem; /* Slightly larger font size for description */
+    margin-bottom: 2rem;
+  }
+
+  .login-link {
+    background-color: white; /* Button background color */
+    color: #3d75aa; /* Button text color */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0.5rem 0.9rem -0.1rem rgba(0,0,0,0.25);
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 1rem 0;
+  }
+}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./LoginPage.scss";
 function LoginPage() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
@@ -31,7 +31,7 @@ function LoginPage() {
   return (
     <section className="loginPage">
       <section>
-        <div>
+        <div className="loginPage__title">
           <h1>Login Page</h1>
         </div>
       </section>
@@ -40,31 +40,34 @@ function LoginPage() {
           <div className="loginPage__email  loginPage__formGroup">
             <label className="loginPage__userEmailLabel">Email:</label>
             <input
-              className="loginPage__userEmailInput"
+              className="loginPage__userEmailInput   loginPage__input"
               placeholder="Enter your mingle email"
               type="text"
               name="addEmail"
               id="addEmail"
             />
           </div>
-          <div className="loginPage__password">
-            <label>Password:</label>
+          <div className="loginPage__password loginPage__formGroup">
+            <label className="loginPage__label">Password:</label>
             <input
-              className="loginPage__passwordInput"
+              className="loginPage__passwordInput loginPage__input"
               placeholder="Enter your mingle Password"
               type="password"
               name="password"
               id="password"
             />
           </div>
-          <button className="login__button">Log in</button>
+          <button className="loginPage__button">Log in</button>
 
           {error && <div className="login__message">{error}</div>}
 
-          <div>
+          <div className="loginPage__linkSignUp">
+            <p className="loginPage__linkMessage">
+              Don't have an account, press the sign up button{" "}
+            </p>{" "}
             <Link to="/signUpPage">
-              <p>Don't have an account, press this mysteious button </p>
-              <button>Sign up Page</button>
+              {/* <p className="loginPage__linkMessage">Don't have an account, press this mysteious button </p> */}
+              <button className="loginPage__linkButton">Sign up Page</button>
             </Link>
           </div>
         </form>
