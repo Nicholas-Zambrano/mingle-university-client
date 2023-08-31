@@ -1,0 +1,114 @@
+.dashboard {
+  &__searchInput {
+    width: 100%;
+    padding: 0.8rem;
+
+    border: 1px solid green;
+    border-radius: 3.2rem;
+    font-size: 1.6rem;
+    padding: 0.8rem 1.6rem;
+
+    &:focus {
+      outline: none;
+      //   border-color: $instock-indigo;
+    }
+  }
+
+  &__searchBarIcon {
+    // position: absolute;
+    // left: 28rem;
+    // bottom: 29.7rem;
+    position: fixed; /* Make the icon fixed */
+    right: 2rem; /* Adjust the position based on your layout */
+    bottom: 29.7rem; /* Adjust the position based on your layout */
+    transform-origin: center center; /* Set the transform origin to center */
+    transition: transform 0.2s;
+  }
+
+  &__searchWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 13rem;
+    margin-top: 4rem;
+  }
+  &__header {
+    background: linear-gradient(
+      135deg,
+      #265c8e,
+      #4ca1af
+    ); /* Background gradient */
+    color: white;
+    font-family: "Chewy", cursive;
+    font-size: 2rem;
+    text-align: center;
+
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &__activitiesWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  &__activitiesList {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 8px;
+  }
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__item {
+    padding-top: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    // background: #251b74;
+    height: 9.2rem;
+    width: 9.2rem;
+    color: #f0ffff;
+    text-align: center;
+    font-family: Gotham;
+    // font-size: 12px;
+    white-space: nowrap;
+    // font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-top: 3.5rem;
+    background: linear-gradient(
+      135deg,
+      #265c8e,
+      #4ca1af
+    ); /* Background gradient */
+    transition: transform 0.2s, background-color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-3rem);
+      background-color: #264c8e; /* Darker shade on hover */
+    }
+  }
+
+  &__subHeader {
+    padding-left: 1rem;
+  }
+
+  &__activitiesHeader {
+    padding-left: 1rem;
+    font-size: 2rem;
+  }
+  &__searchBarIcon:hover {
+    transform: scale(1.1);
+  }
+}

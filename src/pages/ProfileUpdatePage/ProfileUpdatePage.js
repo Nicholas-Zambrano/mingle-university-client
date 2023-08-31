@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import Dashboard from "../DashboardPage/DashboardPage";
 import "./ProfileUpdatePage.scss";
@@ -81,6 +81,7 @@ function ProfileUpdate() {
       })
       .then((response) => {
         console.log(response.data);
+        window.location.href = "/dashboard"
       })
       .catch((error) => {
         console.error(error);
@@ -180,9 +181,11 @@ function ProfileUpdate() {
           />
         </div>
 
-        <button className="profileUpdate__button" type="submit">
-          Lets Mingle
-        </button>
+        {/* <Link to= "/dashboard"> */}
+          <button className="profileUpdate__button" type="submit">
+            Lets Mingle
+          </button>
+        {/* </Link> */}
       </form>
     </section>
   );

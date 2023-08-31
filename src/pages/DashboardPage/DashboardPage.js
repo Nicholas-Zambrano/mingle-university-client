@@ -2,104 +2,48 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 import ProfileUpdate from "../ProfileUpdatePage/ProfileUpdatePage";
+import searchIcon from "../../assets/icons/search.svg";
+import "./DashboardPage.scss";
+import meetFriends from "../../assets/images/match-friends.png";
 
 function DashboardPage() {
-  // const [data, setData] = useState(null);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [failedAuth, setFailedAuth] = useState(false);
-  // const navigate = useNavigate();
-
-
-  // const ciao = async () => {
-
-  //   const token = localStorage.getItem("token");
-  //   if (!token) {
-  //     setFailedAuth(true);
-  //     return;
-  //   }
-
-  //   await  axios
-  //   .get("http://localhost:8080/my-profile", {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log("i am in a loop");
-  //     console.log(response.data);
-  //     setData(response.data);
-  //     // setIsLoading(false);
-
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //     setIsLoading(false);
-  //     setFailedAuth(true);
-  //   });
-
-  //   setIsLoading(false);
-
-  // }
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) {
-  //     setFailedAuth(true);
-  //     return;
-  //   }
-
-  //   axios
-  //     .get("http://localhost:8080/my-profile", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log("i am in a loop");
-  //       console.log(response.data);
-  //       setData(response.data);
-  //       setIsLoading(false);
-
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       setIsLoading(false);
-  //       setFailedAuth(true);
-  //     });
-
-  //   // ciao();
-   
-  // }, []);
-
-  //   you can handle logout here
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    // navigate("/login");
-  };
-
-  // if (failedAuth) {
-  //   return (
-  //     <main className="dashboard">
-  //       <h2>You must have an account to see this page</h2>
-  //       <Link to="/loginPage"> Log in</Link>
-  //     </main>
-  //   );
-  // }
-  // if (isLoading) {
-  //   // setIsLoading(true)
-  //   return (
-  //     <main>
-  //       <h2>Loading</h2>
-  //     </main>
-  //   );
-  // }
-
   return (
-    <main>
-      {/* <h1> My profile </h1>
-      <p>Welcome, {data.first_name}</p> */}
-      {/* <ProfileUpdate/> */}
+    <main className="dashboard">
+      <header className="dashboard__header">
+        <h1>MingleU</h1>
+      </header>
 
+      <div className="dashboard__searchWrapper">
+        <h2 className="dashboard__subHeader"> Mingle Dahsboard</h2>
+
+        <label className="dashboard__searchBarLabel" htmlFor="search"></label>
+        <input
+          type="text"
+          id="search"
+          className="dashboard__searchInput"
+          name="search"
+          placeholder="Search..."
+        />
+        <img
+          className="dashboard__searchBarIcon"
+          src={searchIcon}
+          alt="search icon"
+        />
+      </div>
+
+      <div>
+        <h3 className="dashboard__activitiesHeader">Activities</h3>
+        <div className="dashboard__activitiesWrapper">
+          <ul className="dashboard__activitiesList">
+            <li className="dashboard__item">
+              {/* <img className="dashboard__icon" src={meetFriends} /> */}
+              <p>Mingle Cards</p>
+            </li>
+            <li className="dashboard__item">My profile</li>
+            <li className="dashboard__item">Messages</li>
+          </ul>
+        </div>
+      </div>
     </main>
   );
 }
