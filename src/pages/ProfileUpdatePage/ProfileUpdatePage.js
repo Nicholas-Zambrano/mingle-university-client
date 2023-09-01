@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import StudentCardPage from "../StudentCardPage/StudentCardPage";
 
 // import Dashboard from "../DashboardPage/DashboardPage";
 import "./ProfileUpdatePage.scss";
@@ -17,6 +18,7 @@ function ProfileUpdate() {
   const [isLoading, setIsLoading] = useState(true);
   const [failedAuth, setFailedAuth] = useState(false);
   // const navigate = useNavigate();
+  console.log(university);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -73,6 +75,7 @@ function ProfileUpdate() {
       photo: imageUrl,
     };
     console.log(formData);
+    console.log(formData);
     axios
       .post("http://localhost:8080/update-profile", formData, {
         headers: {
@@ -81,7 +84,7 @@ function ProfileUpdate() {
       })
       .then((response) => {
         console.log(response.data);
-        window.location.href = "/dashboard"
+        window.location.href = "/dashboard";
       })
       .catch((error) => {
         console.error(error);
@@ -182,11 +185,12 @@ function ProfileUpdate() {
         </div>
 
         {/* <Link to= "/dashboard"> */}
-          <button className="profileUpdate__button" type="submit">
-            Lets Mingle
-          </button>
+        <button className="profileUpdate__button" type="submit">
+          Lets Mingle
+        </button>
         {/* </Link> */}
       </form>
+
     </section>
   );
 }

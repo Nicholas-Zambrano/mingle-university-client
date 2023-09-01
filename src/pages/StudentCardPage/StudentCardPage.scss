@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Francois+One&display=swap");
+
+.swiper {
+  // width: 600px;
+  // height: 300px;
+}
+
+.studentCard {
+  // box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Cool shadow effect */
+
+  &__header {
+    font-family: "Chewy", cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(
+      135deg,
+      #265c8e,
+      #4ca1af
+    ); /* Background gradient */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    height: 10rem;
+  }
+
+  &__image {
+    height: 35rem;
+    // margin: auto;
+    width: 26rem;
+    margin-left: 3rem;
+    margin-top: 6rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+
+    box-shadow: 0px 10px 20px rgba(10, 148, 228, 0.509); /* Cool shadow effect */
+  }
+  // &:hover {
+  //   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  //   transform: scale(1.05);
+  // }
+
+  &__footer {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    // margin-top: 4rem;
+    // margin-bottom: 3rem;
+  }
+
+  &__swiperWrapper {
+    background-color: #f5fcfe;
+  }
+
+  &__name {
+    position: absolute;
+    bottom: 5rem;
+    right: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+    font-family: monospace;
+  }
+
+  &__info {
+    position: relative;
+    transition: transform 0.6s;
+    backface-visibility: hidden;
+  }
+
+  &__image:active {
+    transform: rotateY(180deg);
+  }
+
+  &__name:active {
+    transform: translateY(0rem);
+  }
+  &__hobbies {
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  &__subHeader {
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 1rem;
+    // margin-left: 2rem;
+    margin: 2rem;
+    border-radius: 5px;
+
+    animation: pulse 1s infinite;
+    background-color: #f5fcfe;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  &__footer {
+    background-color: #fefaf5;
+    // height: 10rem;
+    padding-bottom: 1rem;
+  }
+
+  &__iconWrapper {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+
+  &__icon {
+    margin-right: 1rem;
+    // border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
+
+    // background-color: #ff00ff;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+  
+  }
+}

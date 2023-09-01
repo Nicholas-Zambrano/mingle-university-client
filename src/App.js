@@ -8,6 +8,7 @@ import Users from "./components/Users/Users";
 import Dashboard from "./pages/DashboardPage/DashboardPage";
 import "./partials/_resets.scss";
 import ProfileUpdatePage from "./pages/ProfileUpdatePage/ProfileUpdatePage";
+import StudentCardPage from "./pages/StudentCardPage/StudentCardPage";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/studentCards" element= {<StudentCardPage/>}/>
           <Route path="/profileUpdate" element={<ProfileUpdatePage />} />
-
           <Route path="/signUpPage" element={<SignUpPage />} />
           <Route path="" element={<HomePage />} />
         </Routes>
