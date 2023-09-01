@@ -16,6 +16,14 @@ function StudentCardPage() {
   //   console.log({university});
   const [isFlipped, setIsFlipped] = useState(null);
 
+  // creating state for potential matches of hobbies:
+  const [potentialMatch, setPotentialMatch] = useState([]);
+  const [currentHobbies, setCurrentHobbies] = useState(null);
+
+  const displayPotentialMatch = () => {
+    <h1>Could be a match</h1>;
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -30,6 +38,7 @@ function StudentCardPage() {
       .then((response) => {
         // const currentUserUniversity = response.data.university;
         setCurrentUserUniversity(response.data.university);
+        setCurrentHobbies(response.data.hobbies);
         // make another get reqest, to get all students that go to same uni
         axios
           .get(
@@ -94,7 +103,21 @@ function StudentCardPage() {
                 <div className="studentCard__details">
                   <h2 className="studentCard__name">{student.first_name}</h2>
                   <p className="studentCard__hobbies">{`Hobbies: ${student.hobbies}`}</p>
+                  <p className="studentCard__course">{`Studying: ${student.course}`}</p>
                 </div>
+
+                {/* now comparing hobbies 
+                this button displays when theres a match in the hobbies
+                */}
+                {student.hobbies === currentHobbies && (
+                  <button
+                    onClick={() =>
+                      setPotentialMatch([...potentialMatch, student])
+                    }
+                  >
+                    Add potential Match
+                  </button>
+                )}
               </div>
             </SwiperSlide>
           ))}
@@ -111,6 +134,10 @@ function StudentCardPage() {
           <img className="studentCard__icon" src={instagram} />
         </div>
       </footer>
+
+      {/* {potentialMatch.length > 0 && (
+      
+      )} */}
     </div>
   );
 }

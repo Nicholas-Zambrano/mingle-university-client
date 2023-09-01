@@ -53,7 +53,7 @@
 
   &__name {
     position: absolute;
-    bottom: 5rem;
+    bottom: 11rem;
     right: 4rem;
     display: flex;
     justify-content: flex-end;
@@ -75,7 +75,7 @@
   &__name:active {
     transform: translateY(0rem);
   }
-  &__hobbies {
+  &__hobbies,&__course {
     font-family: "Comic Sans MS", cursive;
     color: #ff00ff;
     font-size: 1.5rem;
