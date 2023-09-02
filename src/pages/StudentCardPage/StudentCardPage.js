@@ -7,6 +7,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import facebook from "../../assets/icons/icon-facebook.png";
 import twitter from "../../assets/icons/icon-twitter.png";
 import instagram from "../../assets/icons/icon-instagram.png";
+import Modal from "../../components/Modal/Modal";
+import StudentCard from "../../components/StudentCard/StudentCard";
 
 // deconstructing the props of the university that the user goes to
 function StudentCardPage() {
@@ -14,14 +16,27 @@ function StudentCardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [currentUserUniversity, setCurrentUserUniversity] = useState("");
   //   console.log({university});
-  const [isFlipped, setIsFlipped] = useState(null);
 
   // creating state for potential matches of hobbies:
   const [potentialMatch, setPotentialMatch] = useState([]);
   const [currentHobbies, setCurrentHobbies] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-  const displayPotentialMatch = () => {
-    <h1>Could be a match</h1>;
+  // when called- set show modal to true
+  const openModal = () => {
+    // setShowPopUp(true);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    // setShowPopUp(false);
+    setShowModal(false);
+    // console.log("close pop up");
+  };
+  console.log(potentialMatch);
+
+  const savePotentialMatch = (student) => {
+    console.log(`Saved potential match: ${student.first_name}`);
   };
 
   useEffect(() => {
@@ -92,33 +107,27 @@ function StudentCardPage() {
         >
           {studentsSameUniversity.map((student) => (
             <SwiperSlide key={student.id}>
-              {/* <div className="studentCard__info"> */}
-              <div className={`studentCard__info `}>
-                <img
-                  className="studentCard__image"
-                  src={student.url}
-                  alt={student.id}
-                />
+              <StudentCard
+                student={student} // passing student obkect to studentCard component
+                currentHobbies={currentHobbies}
+                showModal={showModal} // whether modal for that student card should be displayed
+                openModal={openModal}
+                closeModal={closeModal}
+                savePotentialMatch={savePotentialMatch}
+              />
 
-                <div className="studentCard__details">
-                  <h2 className="studentCard__name">{student.first_name}</h2>
-                  <p className="studentCard__hobbies">{`Hobbies: ${student.hobbies}`}</p>
-                  <p className="studentCard__course">{`Studying: ${student.course}`}</p>
-                </div>
-
-                {/* now comparing hobbies 
-                this button displays when theres a match in the hobbies
-                */}
-                {student.hobbies === currentHobbies && (
-                  <button
-                    onClick={() =>
-                      setPotentialMatch([...potentialMatch, student])
-                    }
-                  >
-                    Add potential Match
-                  </button>
-                )}
-              </div>
+              {/* when proceed button is clicked - 
+              it passes student data to the savePotentialMatch function  */}
+              <Modal
+                isOpen={showModal} // controlling whether modal is open
+                closeModal={closeModal}
+                student={student} // passing student prop to modal, in order for it to access data about the student
+                onProceed={(student) => {
+                  savePotentialMatch(student);
+                }}
+              >
+                <h2>Potential matches</h2>
+              </Modal>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -134,10 +143,6 @@ function StudentCardPage() {
           <img className="studentCard__icon" src={instagram} />
         </div>
       </footer>
-
-      {/* {potentialMatch.length > 0 && (
-      
-      )} */}
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.studentCard {
+  .studentCard__button {
+
+    position: absolute;
+    top: 2rem;
+    left: 7rem;
+    height: 3rem;
+    // background-color:  
+    background: linear-gradient(135deg, #378e26, #4ca1af);
+    animation: pulse 1s infinite;
+
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.6rem; 
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+
+    /* Add hover effect */
+    &:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  }
+}
