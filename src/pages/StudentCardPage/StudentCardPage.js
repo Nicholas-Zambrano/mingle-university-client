@@ -9,6 +9,7 @@ import twitter from "../../assets/icons/icon-twitter.png";
 import instagram from "../../assets/icons/icon-instagram.png";
 import Modal from "../../components/Modal/Modal";
 import StudentCard from "../../components/StudentCard/StudentCard";
+import ArrowBack from "../../components/ArrowBack/ArrowBack";
 
 // deconstructing the props of the university that the user goes to
 function StudentCardPage() {
@@ -90,8 +91,12 @@ function StudentCardPage() {
       <div className="studentCard__header">
         <h1>MingleU</h1>
       </div>
-      <div className="studentCard__subHeader">
-        <h2>Mingle Cards</h2>
+
+      <div className="studentCard__subHeaderWrapper">
+        <ArrowBack />
+        <div className="studentCard__subHeader">
+          <h2>Mingle Cards</h2>
+        </div>
       </div>
 
       <div className="studentCard__swiperWrapper">
