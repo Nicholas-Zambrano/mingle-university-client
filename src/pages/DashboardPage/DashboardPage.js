@@ -11,13 +11,17 @@ function DashboardPage() {
   const navigate = useNavigate();
 
   const handleMingle = () => {
-    // event.preventDefault();
-    // window.location.href = "/studentCards"
     setTimeout(() => {
       navigate("/studentCards");
     }, 700);
   };
-  
+
+  const handlePotentialPage = () => {
+    setTimeout(() => {
+      navigate("/potentialMatches");
+    }, 700);
+  };
+
   return (
     <main className="dashboard">
       <header className="dashboard__header">
@@ -51,6 +55,9 @@ function DashboardPage() {
             </li>
             <li className="dashboard__item">My profile</li>
             <li className="dashboard__item">Messages</li>
+            <li className="dashboard__item" onClick={handlePotentialPage}>
+              Potential Matches
+            </li>
           </ul>
         </div>
       </div>

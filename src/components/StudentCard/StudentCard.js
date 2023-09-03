@@ -21,7 +21,7 @@ function StudentCard({
     <div className="studentCard__info ">
       {student.hobbies === currentHobbies && (
         <button className="studentCard__button" onClick={handleSavePotentialMatch}>
-          Potential Match Maybe
+          Potential Match 
         </button>
       )}
       <img className="studentCard__image" src={student.url} alt={student.id} />

@@ -20,12 +20,11 @@ function Modal({
   return (
     <div className="modal">
       <div className="modal__container">
-        <p>Save {student.first_name} to your list</p>
+        <p>Save {student.first_name} to your favourites</p>
 
         <div className="modal__content">{content}</div>
         <div className="modal__actions">
           <button className="modal__button" onClick={closeModal}>
-            {" "}
             Cancel
           </button>
           <button className="modal__button" onClick={handleProceed}>

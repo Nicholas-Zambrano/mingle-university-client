@@ -61,6 +61,7 @@
     flex-wrap: wrap;
     width: 100%;
     padding: 0 8px;
+    gap: 2rem;
   }
   &__icon {
     width: 4rem;
@@ -75,8 +76,8 @@
     align-items: center;
     border-radius: 20px;
     // background: #251b74;
-    height: 9.2rem;
-    width: 9.2rem;
+    height: 9rem;
+    width: 14rem;
     color: #f0ffff;
     text-align: center;
     font-family: Gotham;

@@ -37,7 +37,27 @@ function StudentCardPage() {
   console.log(potentialMatch);
 
   const savePotentialMatch = (student) => {
-    console.log(`Saved potential match: ${student.first_name}`);
+    // checking if that student is already saved in the list before saving them again
+    const isStudentInList = potentialMatch.some((potentialStudent) => {
+      return potentialStudent.id === student.id;
+    });
+
+    if (!isStudentInList) {
+      axios
+        // .post("http://localhost:8080/save-potential-match",student)
+        .post("http://localhost:8080/potential-match/save", student)
+        .then((response) => {
+          setPotentialMatch((prevMatches) => [...prevMatches, student]);
+          console.log(response.data);
+          console.log(setPotentialMatch);
+          console.log(`Saved potential match: ${student.first_name}`);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      console.log("student already in list");
+    }
   };
 
   useEffect(() => {
