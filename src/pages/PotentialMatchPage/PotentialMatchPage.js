@@ -17,14 +17,22 @@ function PotetnialMatchPage() {
   }, []);
   console.log(potentialMatches);
 
+  /* this new array will not contain duplicates
+   self is the array being iterated
+   find index- check if the current match has a unique id with array
+*/
+  const uniqueMatches = potentialMatches.filter((match, index, self) => {
+    return index === self.findIndex((m) => m.id === match.id);
+  });
+
   return (
     <div>
       <h1>Potential Matches</h1>
       <ul>
-        {potentialMatches.map((match) => {
+        {uniqueMatches.map((match) => {
           return (
             <li key={match.id}>
-              <Link to={`/`}>
+              <Link to={`/student/${match.id}`}>
                 {match.first_name}
                 {match.last_name}
               </Link>

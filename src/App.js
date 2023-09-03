@@ -10,7 +10,7 @@ import "./partials/_resets.scss";
 import ProfileUpdatePage from "./pages/ProfileUpdatePage/ProfileUpdatePage";
 import StudentCardPage from "./pages/StudentCardPage/StudentCardPage";
 import PotetnialMatchPage from "./pages/PotentialMatchPage/PotentialMatchPage";
-
+import SingleStudentCardPage from "./pages/SingleStudentCardPage/SingleStudentCardPage";
 function App() {
   return (
     <div className="App">
@@ -23,11 +23,7 @@ function App() {
           <Route path="/profileUpdate" element={<ProfileUpdatePage />} />
           <Route path="/signUpPage" element={<SignUpPage />} />
           <Route path="/potentialMatches" element={<PotetnialMatchPage />} />
-          {/* <Route
-            path="/studentCards/:studentId"
-            element={<StudentCardPage />}
-          /> */}
-          {/* <Route path="/potentialMatches/:" /> */}
+          <Route path="/student/:id" element={<SingleStudentCardPage/>} />
           <Route path="" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
