@@ -2,14 +2,57 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import StudentCard from "../../components/StudentCard/StudentCard";
+// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import "./SingleStudentCardPage.scss";
 import ArrowBack from "../../components/ArrowBack/ArrowBack";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function SingleStudentCardPage() {
   const { id } = useParams();
   const [student, setStudent] = useState(null);
   const [showModal, setShowModal] = useState(null);
   const [comment, setComment] = useState("");
+  // const history = useHistory();
+  const navigate = useNavigate();
+
+  const handleFriendRequestAccepted = () => {
+    setTimeout(() => {
+      toast.success("Friend request accepted!!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 8000,
+        // when clicking on notification - redirect to messages page
+        onClick: () => {
+          console.log("Redirecting to messages page");
+
+          navigate("/messages");
+        },
+      });
+    }, 20000);
+  };
+  const handleAutoAccept = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .post(
+        `http://localhost:8080/auto-accept/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -45,6 +88,9 @@ function SingleStudentCardPage() {
         // Handle the success or show a confirmation message
         setShowModal(false); // Close the modal after sending the request
         alert("Friend request sent successfully!");
+        handleAutoAccept();
+        handleFriendRequestAccepted();
+        // console.log(handleFriendRequestAccepted());
       })
       .catch((error) => {
         console.error(error);

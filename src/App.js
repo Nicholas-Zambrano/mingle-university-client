@@ -11,6 +11,9 @@ import ProfileUpdatePage from "./pages/ProfileUpdatePage/ProfileUpdatePage";
 import StudentCardPage from "./pages/StudentCardPage/StudentCardPage";
 import PotetnialMatchPage from "./pages/PotentialMatchPage/PotentialMatchPage";
 import SingleStudentCardPage from "./pages/SingleStudentCardPage/SingleStudentCardPage";
+import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <div className="App">
@@ -23,10 +26,11 @@ function App() {
           <Route path="/profileUpdate" element={<ProfileUpdatePage />} />
           <Route path="/signUpPage" element={<SignUpPage />} />
           <Route path="/potentialMatches" element={<PotetnialMatchPage />} />
-          <Route path="/student/:id" element={<SingleStudentCardPage/>} />
+          <Route path="/student/:id" element={<SingleStudentCardPage />} />
           <Route path="" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
