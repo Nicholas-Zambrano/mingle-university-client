@@ -8,17 +8,8 @@ import ArrowBack from "../../components/ArrowBack/ArrowBack";
 function SingleStudentCardPage() {
   const { id } = useParams();
   const [student, setStudent] = useState(null);
-
-  // const getStudent = (id) => {
-  //    axios
-  //     .get(`http://localhost:8080/student/${id}`)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  const [showModal, setShowModal] = useState(null);
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     axios
@@ -34,15 +25,39 @@ function SingleStudentCardPage() {
       });
   }, [id]);
 
-  // useEffect(() => {
-  //   const student = getStudent(id);
-  //   setStudent(student);
-  // }, []);
+  const handleSendFriendRequest = () => {
+    const token = localStorage.getItem("token");
+    // POST request to send the friend request and the comment to that specific user id
+    axios
+      .post(
+        `http://localhost:8080/send-friend-request/${id}`,
+        { comment },
+        {
+          /**
+           * authenticating the request and verify that the sender is authorized to send the friend request
+           */
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        // Handle the success or show a confirmation message
+        setShowModal(false); // Close the modal after sending the request
+        alert("Friend request sent successfully!");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to send friend request. Please try again.");
+      });
+  };
+
   console.log("Student ID:", id);
 
   console.log("hello");
   console.log(student);
   // console.log(setStudent);
+
   return (
     <div className="singleStudent">
       <div className="singleStudent__header">
@@ -72,6 +87,50 @@ function SingleStudentCardPage() {
         </div>
       ) : (
         <p>Loading...</p>
+      )}
+
+      <div className="singleStudent__friendButtonWrapper">
+        {/* when button is cliked - set modal to true  */}
+        <button
+          className="singleStudent__requestButton"
+          onClick={() => setShowModal(true)}
+        >
+          Send Friend Request
+        </button>
+      </div>
+      {/* 
+      if the show modal is true (if the button was clicked)
+      then renders the content
+      */}
+      {showModal && (
+        <div className="singleStudent__modal">
+          <div className="singleStudent__modalContent">
+            {/* <h2>Send Friend Request</h2> */}
+            <textarea
+              placeholder="Write a message..."
+              className="singleStudent__textArea"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)} // inputting text
+            ></textarea>
+            {/* if send request is clicked in modal then function is called
+            - if the cancel button is selected then it closes the modal
+            */}
+            <div className="singleStudent__modalButtonWrapper">
+              <button
+                className="singleStudent__modalButton"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="singleStudent__modalButton"
+                onClick={handleSendFriendRequest}
+              >
+                Send Request
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
