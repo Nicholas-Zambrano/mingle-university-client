@@ -2,6 +2,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import ArrowBack from "../../components/ArrowBack/ArrowBack";
+import "./PotentialMatchPage.scss";
+import potentialImage from "../../assets/images/potential.png";
+import friendRequest from "../../assets/images/friend-request.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 function PotetnialMatchPage() {
   const [potentialMatches, setPotentialMatches] = useState([]);
@@ -26,20 +33,69 @@ function PotetnialMatchPage() {
   });
 
   return (
-    <div>
-      <h1>Potential Matches</h1>
-      <ul>
-        {uniqueMatches.map((match) => {
-          return (
-            <li key={match.id}>
-              <Link to={`/student/${match.id}`}>
-                {match.first_name}
-                {match.last_name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="potentialMatch">
+      <div className="potentialMatch__header">
+        <Link to="/dashboard" className="potentialMatch__headerLink">
+          <h1>MingleU</h1>
+        </Link>
+      </div>
+
+      <section className="potentialMatch__wrapper">
+        <div className="potentialMatch__subheaderWrapper">
+          <ArrowBack className="potentialMatch__arrowImage" />
+          <h2 className="potentialMatch__subheader">Potential Matches</h2>
+        </div>
+
+        <div className="potentialMatch__swiper">
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log("slide change")}
+          >
+            <SwiperSlide>
+              <div className="potentialMatch__imageWrapper">
+                <img
+                  src={potentialImage}
+                  className="potentialMatch__image"
+                  alt="potential image"
+                />
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="potentialMatch__imageWrapper">
+                <img
+                  src={friendRequest}
+                  className="potentialMatch__image"
+                  alt="friend request"
+                />
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        <h3 className="potentialMatch__listTitle">Saved Matches</h3>
+
+        <ul className="potentialMatch__unordered">
+          {uniqueMatches.map((match) => {
+            return (
+              <li className="potentialMatch__item" key={match.id}>
+                <Link
+                  to={`/student/${match.id}`}
+                  className="potentialMatch__link"
+                >
+                  {match.first_name} {match.last_name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import StudentCard from "../../components/StudentCard/StudentCard";
+import "./SingleStudentCardPage.scss";
+import ArrowBack from "../../components/ArrowBack/ArrowBack";
 
 function SingleStudentCardPage() {
   const { id } = useParams();
@@ -42,12 +44,23 @@ function SingleStudentCardPage() {
   console.log(student);
   // console.log(setStudent);
   return (
-    <div>
-      <h1>Single student</h1>
+    <div className="singleStudent">
+      <div className="singleStudent__header">
+        <Link className="singleStudent__headerLink" to="/dashboard">
+          <h1 className="singleStudent__title">MingleU</h1>
+        </Link>
+      </div>
+
+      <div className="singleStudent__subheaderWrapper">
+        <ArrowBack />
+
+        <h2 className="singleStudent__subheader">Single student</h2>
+      </div>
+
       {student ? (
-        <div className="studentCard__info">
+        <div className="studentCard__info singleStudent__wrapper">
           <img
-            className="studentCard__image"
+            className="studentCard__image singleStudent__image"
             src={student.url}
             alt={student.id}
           />

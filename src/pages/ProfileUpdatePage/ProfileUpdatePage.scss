@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Francois+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Francois+One&display=swap");
 
 .profileUpdate {
   display: flex;
@@ -69,8 +69,13 @@
     margin-top: 4rem;
   }
 
+  &__titleLink {
+    text-decoration: none;
+    color: white;
+  }
+
   &__subheader {
-    font-family:"Francois One",sans-serif ;
+    font-family: "Francois One", sans-serif;
     display: flex;
     width: 80%;
     justify-content: flex-start;

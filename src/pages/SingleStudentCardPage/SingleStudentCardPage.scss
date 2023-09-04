@@ -1,0 +1,60 @@
+.singleStudent {
+  &__header {
+    font-family: "Chewy", cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #265c8e, #4ca1af);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    height: 10rem;
+  }
+
+  &__headerLink{
+    text-decoration: none;
+    color: white;
+  }
+
+  &__subheaderWrapper {
+    display: flex;
+    background-color: #ededed;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    justify-content: start;
+    align-items: center;
+  }
+
+  &__subheader {
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 2.4rem;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+    background-color: #f5fcfe;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
+    width: 23rem;
+    text-align: center;
+  }
+  .arrow-back {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+    right: 0rem;
+  }
+
+  &__wrapper{
+    background-color: #ededed;
+  }
+
+  &__image{
+    margin-top: 1rem;
+  }
+
+
+}

@@ -10,6 +10,7 @@ import instagram from "../../assets/icons/icon-instagram.png";
 import Modal from "../../components/Modal/Modal";
 import StudentCard from "../../components/StudentCard/StudentCard";
 import ArrowBack from "../../components/ArrowBack/ArrowBack";
+import { Link } from "react-router-dom";
 
 // deconstructing the props of the university that the user goes to
 function StudentCardPage() {
@@ -109,7 +110,9 @@ function StudentCardPage() {
   return (
     <div className="studentCard">
       <div className="studentCard__header">
-        <h1>MingleU</h1>
+        <Link to="/dashboard" className="studentCard__headerLink">
+          <h1>MingleU</h1>
+        </Link>
       </div>
 
       <div className="studentCard__subHeaderWrapper">

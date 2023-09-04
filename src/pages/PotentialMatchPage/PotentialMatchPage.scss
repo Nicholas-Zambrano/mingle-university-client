@@ -1,0 +1,84 @@
+.potentialMatch {
+  &__header {
+    background: linear-gradient(135deg, #265c8e, #4ca1af);
+    color: white;
+    font-family: "Chewy", cursive;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &__headerLink{
+    color: white;
+    text-decoration: none;
+  }
+  &__wrapper {
+    height: 100vh;
+    background-color: #ededed;
+  }
+
+  &__subheader {
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 2.4rem;
+    text-align: left;
+    padding: 1rem;
+    // margin: 2rem;
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+    background-color: #f5fcfe;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
+    // margin-top: 4rem;
+    width: 23rem;
+    text-align: center;
+  }
+  &__subheaderWrapper {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .arrow-back {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+    right: 0rem;
+  }
+
+  &__imageWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__image {
+    width: 85%;
+    height: 20rem;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 20px rgba(31, 22, 29, 0.954);
+  }
+
+  &__item {
+    font-size: 2rem;
+    border: 0.5rem solid beige;
+    border-radius: 1rem;
+    background-color: #265c8e;
+    padding: 1rem;
+    width: 85%;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    font-family: monospace;
+  }
+  &__listTitle{
+    font-family: monospace;
+    margin-top: 4rem;
+  }
+}

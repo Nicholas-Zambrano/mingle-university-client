@@ -22,6 +22,12 @@ function DashboardPage() {
     }, 700);
   };
 
+  const handleMyProfile = ()=>{
+    setTimeout(() => {
+      navigate("/profileUpdate")
+    }, 700);
+  }
+
   return (
     <main className="dashboard">
       <header className="dashboard__header">
@@ -46,14 +52,14 @@ function DashboardPage() {
         />
       </div>
 
-      <div>
+      <div className="dashboard__activitiesContainer">
         <h3 className="dashboard__activitiesHeader">Activities</h3>
         <div className="dashboard__activitiesWrapper">
           <ul className="dashboard__activitiesList">
             <li className="dashboard__item" onClick={handleMingle}>
               <p>Mingle Cards</p>
             </li>
-            <li className="dashboard__item">My profile</li>
+            <li className="dashboard__item" onClick={handleMyProfile}>My profile</li>
             <li className="dashboard__item">Messages</li>
             <li className="dashboard__item" onClick={handlePotentialPage}>
               Potential Matches

@@ -7,6 +7,7 @@
     border-radius: 3.2rem;
     font-size: 1.6rem;
     padding: 0.8rem 1.6rem;
+    // margin-top: 2rem;
 
     &:focus {
       outline: none;
@@ -15,13 +16,10 @@
   }
 
   &__searchBarIcon {
-    // position: absolute;
-    // left: 28rem;
-    // bottom: 29.7rem;
-    position: fixed; /* Make the icon fixed */
-    right: 2rem; /* Adjust the position based on your layout */
-    bottom: 29.7rem; /* Adjust the position based on your layout */
-    transform-origin: center center; /* Set the transform origin to center */
+    position: absolute;
+    right: 2rem;
+    bottom: 27rem;
+    transform-origin: center center;
     transition: transform 0.2s;
   }
 
@@ -29,8 +27,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    height: 13rem;
-    margin-top: 4rem;
+    height: 20rem;
+    // margin-top: 4rem;
+    background-color: #ededed;
   }
   &__header {
     background: linear-gradient(
@@ -45,6 +44,7 @@
 
     padding-top: 4rem;
     padding-bottom: 4rem;
+    // border-radius: 2rem;
   }
 
   &__activitiesWrapper {
@@ -85,6 +85,8 @@
     white-space: nowrap;
     // font-style: normal;
     font-weight: 400;
+    font-size: 1.8rem;
+    color: white;
     line-height: 20px;
     padding-top: 3.5rem;
     background: linear-gradient(
@@ -94,6 +96,7 @@
     ); /* Background gradient */
     transition: transform 0.2s, background-color 0.2s;
     cursor: pointer;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
 
     &:hover {
       transform: translateY(-3rem);
@@ -103,13 +106,35 @@
 
   &__subHeader {
     padding-left: 1rem;
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 2.4rem;
+    text-align: left;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+    background-color: #f5fcfe;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
+    margin-top: 4rem;
+    text-align: center;
   }
 
   &__activitiesHeader {
     padding-left: 1rem;
-    font-size: 2rem;
+    font-size: 2.8rem;
+    margin-top: 0rem;
+    font-family: monospace;
   }
   &__searchBarIcon:hover {
     transform: scale(1.1);
+  }
+
+  &__activitiesContainer {
+    background-color: #ededed;
   }
 }

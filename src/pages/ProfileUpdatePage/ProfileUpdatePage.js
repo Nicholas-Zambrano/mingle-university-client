@@ -93,7 +93,9 @@ function ProfileUpdate() {
   return (
     <section className="profileUpdate">
       <div className="profileUpdate__title">
-        <h1> My profile </h1>
+        <Link to="/dashboard" className="profileUpdate__titleLink">
+          <h1> My profile </h1>
+        </Link>
       </div>
 
       <div className="profileUpdate__subheader">
@@ -190,7 +192,6 @@ function ProfileUpdate() {
         </button>
         {/* </Link> */}
       </form>
-
     </section>
   );
 }

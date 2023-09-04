@@ -22,6 +22,11 @@
     height: 10rem;
   }
 
+  &__headerLink {
+    text-decoration: none;
+    color: white;
+  }
+
   &__image {
     height: 35rem;
     // margin: auto;
@@ -75,7 +80,8 @@
   &__name:active {
     transform: translateY(0rem);
   }
-  &__hobbies,&__course {
+  &__hobbies,
+  &__course {
     font-family: "Comic Sans MS", cursive;
     color: #ff00ff;
     font-size: 1.5rem;
@@ -137,9 +143,8 @@
     color: white;
     text-align: center;
     font-size: 2rem;
-  
   }
-  &__subHeaderWrapper{
+  &__subHeaderWrapper {
     display: flex;
     background-color: #ededed;
   }
