@@ -7,11 +7,9 @@
     border-radius: 3.2rem;
     font-size: 1.6rem;
     padding: 0.8rem 1.6rem;
-    // margin-top: 2rem;
 
     &:focus {
       outline: none;
-      //   border-color: $instock-indigo;
     }
   }
 
@@ -28,7 +26,6 @@
     flex-direction: column;
     gap: 2rem;
     height: 20rem;
-    // margin-top: 4rem;
     background-color: #ededed;
   }
   &__header {
@@ -44,7 +41,6 @@
 
     padding-top: 4rem;
     padding-bottom: 4rem;
-    // border-radius: 2rem;
   }
 
   &__activitiesWrapper {
@@ -75,15 +71,12 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    // background: #251b74;
     height: 9rem;
     width: 14rem;
     color: #f0ffff;
     text-align: center;
     font-family: Gotham;
-    // font-size: 12px;
     white-space: nowrap;
-    // font-style: normal;
     font-weight: 400;
     font-size: 1.8rem;
     color: white;
