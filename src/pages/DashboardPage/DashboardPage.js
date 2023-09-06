@@ -22,11 +22,19 @@ function DashboardPage() {
     }, 700);
   };
 
-  const handleMyProfile = ()=>{
+  const handleMyProfile = () => {
     setTimeout(() => {
-      navigate("/profileUpdate")
+      navigate("/profileUpdate");
     }, 700);
-  }
+  };
+
+  const handleMessages = () => {
+    setTimeout(() => {
+      navigate("/messages");
+      // navigate("/messages",{state:{acceptedUser}});
+
+    }, 700);
+  };
 
   return (
     <main className="dashboard">
@@ -59,8 +67,12 @@ function DashboardPage() {
             <li className="dashboard__item" onClick={handleMingle}>
               <p>Mingle Cards</p>
             </li>
-            <li className="dashboard__item" onClick={handleMyProfile}>My profile</li>
-            <li className="dashboard__item">Messages</li>
+            <li className="dashboard__item" onClick={handleMyProfile}>
+              My profile
+            </li>
+            <li className="dashboard__item" onClick={handleMessages}>
+              Messages
+            </li>
             <li className="dashboard__item" onClick={handlePotentialPage}>
               Potential Matches
             </li>

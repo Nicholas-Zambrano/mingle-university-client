@@ -29,11 +29,13 @@ function SingleStudentCardPage() {
         onClick: () => {
           console.log("Redirecting to messages page");
 
-          navigate("/messages");
+          const acceptedUser = id;
+          navigate(`/messages`);
         },
       });
     }, 20000);
   };
+
   const handleAutoAccept = () => {
     const token = localStorage.getItem("token");
     axios
@@ -57,9 +59,8 @@ function SingleStudentCardPage() {
   useEffect(() => {
     axios
       .get(`http://localhost:8080/student/${id}`)
-      // .get(`http://localhost:8080/potetntial-match/get`)
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
 
         setStudent(response.data);
       })
@@ -93,8 +94,15 @@ function SingleStudentCardPage() {
         // console.log(handleFriendRequestAccepted());
       })
       .catch((error) => {
-        console.error(error);
-        alert("Failed to send friend request. Please try again.");
+        // console.error(error);
+        // alert("Failed to send friend request. Please try again.");
+
+        // if friend request already exists
+        if (error.response && error.response.status === 400) {
+          alert("you already sent a friend request stop being silly");
+        } else {
+          alert("Failed to send friend request. Please try again.");
+        }
       });
   };
 
