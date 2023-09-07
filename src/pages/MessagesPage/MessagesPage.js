@@ -10,8 +10,7 @@ function MessagesPage() {
   const [acceptedUser, setAcceptedUser] = useState([]);
 
   const navigate = useNavigate();
-  // const {userId} = useParams()
-  // chat gbt key
+  
 
   useEffect(() => {
     axios
