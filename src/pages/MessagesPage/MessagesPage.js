@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./MessagesPage.scss";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 function MessagesPage() {
   const [messages, setMessages] = useState([]);
@@ -9,8 +9,9 @@ function MessagesPage() {
 
   const [acceptedUser, setAcceptedUser] = useState([]);
 
+  const navigate = useNavigate();
+  // const {userId} = useParams()
   // chat gbt key
-  const API_KEY = "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";
 
   useEffect(() => {
     axios
@@ -24,6 +25,12 @@ function MessagesPage() {
       });
   }, []);
 
+  // navigating to those specific students
+  const handleNavigation = (userId) => {
+    // navigate(`/messages/${userId}`);
+    window.location.href = `messages/${userId}`;
+  };
+  console.log(acceptedUser);
   return (
     <div className="message">
       <div className="message__header">
@@ -39,15 +46,13 @@ function MessagesPage() {
         <div>
           {acceptedUser.map((user) => {
             return (
-              <Link
-                key={user.id}
-                to={`/messages/${user.id}`}
-                className="message__firendLink"
+              <div
+                className="message__friend"
+                onClick={() => handleNavigation(user.receiver_id)}
               >
-                <div className="message__friend">
-                  {user.first_name} {user.last_name}
-                </div>
-              </Link>
+                {user.first_name} {user.last_name}
+              </div>
+              // </Link>
             );
           })}
         </div>

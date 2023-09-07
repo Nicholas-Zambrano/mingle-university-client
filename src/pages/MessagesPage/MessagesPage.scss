@@ -36,8 +36,18 @@
     width: 23rem;
     text-align: center;
   }
-  &__subheaderWrapper{
+  &__subheaderWrapper {
     display: flex;
     justify-content: center;
+  }
+
+  &__friend {
+    font-size: 2rem;
+    border: 0.5rem solid beige;
+    border-radius: 1rem;
+    background-color: #265c8e;
+    padding: 1rem;
+    width: 85%;
+    color: white;
   }
 }

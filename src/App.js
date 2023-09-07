@@ -13,6 +13,7 @@ import PotetnialMatchPage from "./pages/PotentialMatchPage/PotentialMatchPage";
 import SingleStudentCardPage from "./pages/SingleStudentCardPage/SingleStudentCardPage";
 import { ToastContainer } from "react-toastify";
 import MessagesPage from "./pages/MessagesPage/MessagesPage";
+import DirectMessages from "./pages/DirectMessages/DirectMessages";
 // import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/student/:id" element={<SingleStudentCardPage />} />
           <Route path="" element={<HomePage />} />
           <Route path="/messages" element={<MessagesPage />} />
+          <Route path="/messages/:id" element={<DirectMessages />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
