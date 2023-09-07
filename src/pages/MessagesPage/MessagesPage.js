@@ -9,9 +9,7 @@ function MessagesPage() {
 
   const [acceptedUser, setAcceptedUser] = useState([]);
 
-  // chat gbt key
-  const API_KEY = "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";
-
+  //
   useEffect(() => {
     axios
       .get(`http://localhost:8080/accepted-users`)
