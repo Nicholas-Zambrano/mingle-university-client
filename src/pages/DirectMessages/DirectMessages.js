@@ -20,9 +20,8 @@ function DirectMessages() {
   ]);
   const [newMessage, setNewMessage] = useState("");
   const API_URL = "https://api.openai.com/v1/chat/completions";
-  // const API_KEY = process.env.REACT_APP_API_KEY;
-  // // const API_KEY ="rchcLSy4acNt3ucDGBqVT3BlbkFJvBqiIM0khjBCsUzJwx63"
-  const API_KEY = "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";
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   const { id } = useParams();
 
   const [user, setUser] = useState("");
