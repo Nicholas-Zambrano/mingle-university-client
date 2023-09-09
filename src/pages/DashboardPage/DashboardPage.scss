@@ -1,4 +1,10 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
 .dashboard {
+  height: 100vh;
+  background-color: #ededed;
+
   &__searchInput {
     width: 100%;
     padding: 0.8rem;
@@ -10,6 +16,10 @@
 
     &:focus {
       outline: none;
+    }
+
+    @include tablet {
+      width: 40rem;
     }
   }
 
@@ -27,6 +37,11 @@
     gap: 2rem;
     height: 20rem;
     background-color: #ededed;
+
+    @include tablet {
+      justify-content: center;
+      align-items: center;
+    }
   }
   &__header {
     background: linear-gradient(
@@ -49,6 +64,11 @@
     flex-direction: column;
     gap: 2rem;
     margin-top: 4rem;
+
+    @include tablet {
+      width: 40rem;
+      margin: auto;
+    }
   }
 
   &__activitiesList {
@@ -115,6 +135,10 @@
     box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
     margin-top: 4rem;
     text-align: center;
+
+    @include tablet {
+      width: 40rem;
+    }
   }
 
   &__activitiesHeader {
@@ -122,6 +146,14 @@
     font-size: 2.8rem;
     margin-top: 0rem;
     font-family: monospace;
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      color: #7712db;
+      font-size: -webkit-xxx-large;
+    }
   }
   &__searchBarIcon:hover {
     transform: scale(1.1);

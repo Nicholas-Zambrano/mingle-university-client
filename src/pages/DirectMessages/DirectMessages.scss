@@ -1,0 +1,134 @@
+.directMessages {
+  background-color: #ededed;
+  height: 100vh;
+  &__header {
+    font-family: "Chewy", cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #265c8e, #4ca1af);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    height: 10rem;
+  }
+
+  &__headerLink {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__subheaderWrapper {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  &__subheader {
+    font-family: "Comic Sans MS", cursive;
+    color: #ff00ff;
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+    background-color: #f5fcfe;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 10px 20px rgba(228, 10, 170, 0.509);
+    width: 23rem;
+    text-align: center;
+  }
+  .arrow-back {
+    margin-bottom: 3rem;
+  }
+
+  &__chatContainer {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
+  }
+
+  &__messageContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
+  &__message--user {
+    background-color: #24c0dc4d;
+    align-self: flex-end;
+    border-radius: 1rem;
+  }
+
+  &__message--assistant {
+    background-color: rgb(10 228 137 / 39%);
+    align-self: flex-start;
+    border-radius: 1rem;
+  }
+
+  &__messageContent {
+    max-width: 70%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    font-size: 16px;
+  }
+
+  &__inputForm {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ff00ff36;
+    border-radius: 1rem;  }
+
+  &__inputField {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  &__sendButton {
+    background-color: #128c7e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  &__sendButton:hover {
+    background-color: #0d6b5c;
+  }
+  &__friend {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Text color */
+    background-color: #a04caf; /* Background color */
+    padding: 10px 20px; /* Padding around the text */
+    border-radius: 20px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the friend's name */
+    text-align: center; /* Center-align the text */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add a text shadow */
+    /* Add hover effect */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  &__friend:hover {
+    background-color: #45a049; /* Darker background color on hover */
+  }
+}
+
+  

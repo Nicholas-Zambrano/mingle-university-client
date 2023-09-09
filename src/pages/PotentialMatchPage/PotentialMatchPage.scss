@@ -1,4 +1,8 @@
 .potentialMatch {
+  height: 100vh;
+  background-color: #ededed;
+
+
   &__header {
     background: linear-gradient(135deg, #265c8e, #4ca1af);
     color: white;
@@ -14,8 +18,9 @@
     text-decoration: none;
   }
   &__wrapper {
-    height: 80rem;
+    // height: 80rem;
     background-color: #ededed;
+    padding-bottom: 5rem;
   }
 
   &__subheader {

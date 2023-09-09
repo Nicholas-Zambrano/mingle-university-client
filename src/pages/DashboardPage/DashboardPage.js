@@ -43,7 +43,7 @@ function DashboardPage() {
       </header>
 
       <div className="dashboard__searchWrapper">
-        <h2 className="dashboard__subHeader"> Mingle Dahsboard</h2>
+        <h2 className="dashboard__subHeader"> Mingle Dashboard</h2>
 
         <label className="dashboard__searchBarLabel" htmlFor="search"></label>
         <input
@@ -53,11 +53,11 @@ function DashboardPage() {
           name="search"
           placeholder="Search..."
         />
-        <img
+        {/* <img
           className="dashboard__searchBarIcon"
           src={searchIcon}
           alt="search icon"
-        />
+        /> */}
       </div>
 
       <div className="dashboard__activitiesContainer">

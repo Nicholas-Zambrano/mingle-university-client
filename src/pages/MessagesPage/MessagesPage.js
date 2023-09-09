@@ -42,7 +42,7 @@ function MessagesPage() {
         <div className="message__subheaderWrapper">
           <h1 className="message__subheader">Chat with Friends</h1>
         </div>
-        <div>
+        <div className="message__friendWrapper">
           {acceptedUser.map((user) => {
             return (
               <div
